@@ -1,0 +1,50 @@
+package com.example.mytest.MybatisService;
+
+import com.example.mytest.entity.Employee;
+import com.example.mytest.mapper.EmployeeMapper;
+import com.example.mytest.pojo.dto.ResponseMessage;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import jakarta.annotation.Resource;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
+
+// 标注为springboot里面的一个bean
+@Service
+public class EmployeeService {
+
+    @Resource
+    private EmployeeMapper employeeMapper;
+
+    public List<Employee> getAll() {
+
+        List<Employee> list = employeeMapper.selectAll();
+        return list;
+    }
+
+    public Employee getById(Integer id) {
+     return employeeMapper.selectById(id);
+    }
+
+    public PageInfo<Employee> getPage(Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<Employee> list = employeeMapper.selectAll();
+        return PageInfo.of(list);
+    }
+
+    public void add(@RequestBody Employee employee)
+    {
+         employeeMapper.add(employee);
+    }
+
+    public void update(Employee employee) {
+        employeeMapper.updateById(employee);
+
+    }
+
+    public void delete(Integer id) {
+        employeeMapper.deleteById(id);
+    }
+}

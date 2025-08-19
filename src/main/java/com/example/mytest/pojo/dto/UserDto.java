@@ -7,6 +7,16 @@ import org.hibernate.validator.constraints.Length;
 
 public class UserDto {
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    private Integer id;
+
     @NotBlank(message = "用户名不能为空")
     private String userName;
 

@@ -7,10 +7,7 @@ import com.example.mytest.pojo.dto.UserDto;
 import com.example.mytest.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController // 接口方法返回对象 装换成json文本
 @RequestMapping("/user") // 接口路由 /user
@@ -26,6 +23,24 @@ public class UserController {
         return ResponseMessage.success(newUser);
     }
 
+    @GetMapping("/{userId}")
+    public ResponseMessage getUserById(@PathVariable("userId") Integer userId)
+    {
+        var user = userService.getUser(userId);
+        return ResponseMessage.success(user);
+    }
 
+    @PutMapping
+    public ResponseMessage edit(@Validated @RequestBody UserDto user)
+    {
+        var result = userService.eddit(user);
+        return ResponseMessage.success(result);
+    }
 
+    @DeleteMapping("/{userId}")
+    public ResponseMessage delete(@PathVariable("userId") Integer userId)
+    {
+        userService.delete(userId);
+        return ResponseMessage.success(null);
+    }
 }
