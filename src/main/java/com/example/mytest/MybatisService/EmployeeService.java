@@ -20,7 +20,7 @@ public class EmployeeService {
 
     public List<Employee> getAll() {
 
-        List<Employee> list = employeeMapper.selectAll();
+        List<Employee> list = employeeMapper.selectAll(new Employee());
         return list;
     }
 
@@ -28,9 +28,9 @@ public class EmployeeService {
      return employeeMapper.selectById(id);
     }
 
-    public PageInfo<Employee> getPage(Integer pageNum, Integer pageSize) {
+    public PageInfo<Employee> getPage(Employee employee,Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
-        List<Employee> list = employeeMapper.selectAll();
+        List<Employee> list = employeeMapper.selectAll(employee);
         return PageInfo.of(list);
     }
 

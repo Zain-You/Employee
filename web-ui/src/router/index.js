@@ -10,6 +10,7 @@ const router = createRouter({
                 {path: 'test', name: 'test',meta:{title:"测试页面"}, component: () => import('../views/Test.vue')},
                 {path: 'home', name: 'home', meta:{title:"主页"}, component: () => import('../views/Home.vue')},
                 {path: 'data', name: 'data', meta:{title:"数据页面"}, component: () => import('../views/Data.vue')},
+                {path: 'employee', name: 'employee', meta:{title:"员工信息"}, component: () => import('../views/Employee.vue')},
           ]},
         {path:'/404',name:'NOtFound',meta:{title:'404找不到页面'}, component:()=> import('../views/404.vue')},
         {path:'/:pathMatch(.*)',redirect:'/404'}

@@ -5,6 +5,10 @@
 <mapper namespace="com.example.mytest.mapper.EmployeeMapper">
     <select id="selectAll" resultType="com.example.mytest.entity.Employee">
         SELECT * FROM employee
+        <where>
+            <if test="name!=null"> name like concat('%',#{name},'%')</if>
+        </where>
+        order by id desc
     </select>
 
     <insert id="add" parameterType="com.example.mytest.entity.Employee">

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface EmployeeMapper
 {
-    List<Employee> selectAll();
+    List<Employee> selectAll(Employee employee);
 
     @Select("select * from employee where id= #{id}")
     Employee selectById(Integer id);

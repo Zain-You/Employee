@@ -47,8 +47,8 @@ public class EmployeeController {
 
     // 分页查询
     @GetMapping("/getPage")
-    public ResponseMessage getPage(@RequestParam(defaultValue = "1") Integer pageNum,@RequestParam(defaultValue = "10") Integer pageSize ) {
-            var pageInfo = employeeService.getPage(pageNum, pageSize);
+    public ResponseMessage getPage(Employee employee,@RequestParam(defaultValue = "1") Integer pageNum,@RequestParam(defaultValue = "10") Integer pageSize ) {
+            var pageInfo = employeeService.getPage(employee,pageNum, pageSize);
             return ResponseMessage.success(pageInfo);
     }
 

@@ -15,15 +15,25 @@
 <script setup lang="ts">
 import {reactive,ref} from "vue";
 import {Delete} from "@element-plus/icons-vue"
+import request from "@/utils/request";
 
 const a =ref(1)
 const b =ref("ceshi")
 
 const data = reactive(({
   a:12323,
-  b:"测试一下嘛"
+  b:"测试一下嘛",
+  employeeList:[],
 
 }))
+
+request.get('/employee/getAll').then(res=>{
+
+  console.log(res);
+  data.employeeList = res.data;
+
+})
+
 </script>
 
 <style scoped>

@@ -3,7 +3,7 @@
     <!-- 头部开始  -->
     <div style="height: 60px;background-color: #3c7fff;display: flex;align-items: center">
         <div style="width: 200px; display: flex;align-items: center;font-size: 20px;color: white;padding-left: 15px;">
-          <img style="width:40px" src="@/assets/logo.png" alt="" />
+          <img style="width:40px;margin-right: 5px;" src="@/assets/logo.png" alt="" />
           <span style="font-size:24px;color:white">后台管理系统</span>
         </div>
       <div style="flex: 1"></div>
@@ -42,20 +42,16 @@
               <span>用户管理</span>
             </template>
             <el-menu-item>管理员信息</el-menu-item>
-            <el-menu-item>普通用户信息</el-menu-item>
+            <el-menu-item index="/manager/employee">员工信息</el-menu-item>
           </el-sub-menu>
 
           <el-menu-item index="/manager/home">
-            <el-icon>
-              <User />
-            </el-icon>
+            <el-icon><UserFilled /></el-icon>
             个人信息
           </el-menu-item>
 
-          <el-menu-item index="/manager/home">
-            <el-icon>
-              <House/>
-            </el-icon>
+          <el-menu-item>
+            <el-icon><SwitchButton /></el-icon>
             退出登录
           </el-menu-item>
 
@@ -80,6 +76,7 @@
 </template>
 <script setup lang="ts">
 import router from "@/router/index";
+
 </script>
 
 <style scoped>
