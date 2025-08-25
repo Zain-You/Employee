@@ -1,6 +1,6 @@
-package com.example.mytest.repository;
+package com.zain.user.repository;
 
-import com.example.mytest.pojo.User;
+import com.zain.user.pojo.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

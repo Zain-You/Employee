@@ -1,4 +1,4 @@
-package com.example.mytest.pojo;
+package com.zain.user.pojo;
 import jakarta.persistence.*;
 
 @Table(name = "tb_user")

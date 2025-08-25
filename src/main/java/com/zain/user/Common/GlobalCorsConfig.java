@@ -1,4 +1,4 @@
-package com.example.mytest.Common;
+package com.zain.user.Common;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

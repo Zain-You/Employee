@@ -1,8 +1,8 @@
-package com.example.mytest.service;
+package com.zain.user.service;
 
 
-import com.example.mytest.pojo.User;
-import com.example.mytest.pojo.dto.UserDto;
+import com.zain.user.pojo.User;
+import com.zain.user.pojo.dto.UserDto;
 
 public interface IUserService {
     User add(UserDto user);

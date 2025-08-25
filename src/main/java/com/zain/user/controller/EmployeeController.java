@@ -1,8 +1,8 @@
-package com.example.mytest.controller;
+package com.zain.user.controller;
 
-import com.example.mytest.MybatisService.EmployeeService;
-import com.example.mytest.entity.Employee;
-import com.example.mytest.pojo.dto.ResponseMessage;
+import com.zain.user.MybatisService.EmployeeService;
+import com.zain.user.entity.Employee;
+import com.zain.user.pojo.dto.ResponseMessage;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
 

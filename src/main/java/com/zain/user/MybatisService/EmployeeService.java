@@ -1,8 +1,7 @@
-package com.example.mytest.MybatisService;
+package com.zain.user.MybatisService;
 
-import com.example.mytest.entity.Employee;
-import com.example.mytest.mapper.EmployeeMapper;
-import com.example.mytest.pojo.dto.ResponseMessage;
+import com.zain.user.entity.Employee;
+import com.zain.user.mapper.EmployeeMapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import jakarta.annotation.Resource;

@@ -1,10 +1,10 @@
-package com.example.mytest.controller;
+package com.zain.user.controller;
 
 
-import com.example.mytest.pojo.User;
-import com.example.mytest.pojo.dto.ResponseMessage;
-import com.example.mytest.pojo.dto.UserDto;
-import com.example.mytest.service.IUserService;
+import com.zain.user.pojo.User;
+import com.zain.user.pojo.dto.ResponseMessage;
+import com.zain.user.pojo.dto.UserDto;
+import com.zain.user.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

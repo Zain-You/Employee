@@ -1,6 +1,6 @@
-package com.example.mytest.exception;
+package com.zain.user.exception;
 
-import com.example.mytest.pojo.dto.ResponseMessage;
+import com.zain.user.pojo.dto.ResponseMessage;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;

@@ -1,6 +1,6 @@
-package com.example.mytest.mapper;
+package com.zain.user.mapper;
 
-import com.example.mytest.entity.Employee;
+import com.zain.user.entity.Employee;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
 

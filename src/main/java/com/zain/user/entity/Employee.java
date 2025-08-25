@@ -1,4 +1,4 @@
-package com.example.mytest.entity;
+package com.zain.user.entity;
 
 public class Employee {
     private Integer id;

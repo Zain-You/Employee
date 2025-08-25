@@ -1,4 +1,4 @@
-package com.example.mytest.pojo.dto;
+package com.zain.user.pojo.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
