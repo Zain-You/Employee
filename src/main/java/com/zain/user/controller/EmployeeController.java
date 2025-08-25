@@ -48,7 +48,7 @@ public class EmployeeController {
     // 分页查询
     @GetMapping("/getPage")
     public ResponseMessage getPage(Employee employee,@RequestParam(defaultValue = "1") Integer pageNum,@RequestParam(defaultValue = "10") Integer pageSize ) {
-            var pageInfo = employeeService.getPage(employee,pageNum, pageSize);
+            com.github.pagehelper.PageInfo<Employee> pageInfo = employeeService.getPage(employee,pageNum, pageSize);
             return ResponseMessage.success(pageInfo);
     }
 
@@ -73,4 +73,9 @@ public class EmployeeController {
         return ResponseMessage.success(null);
     }
 
+    @DeleteMapping("/deleteBatch")
+    public ResponseMessage deleteBatch(@RequestBody List<Integer> ids) {
+        employeeService.deleteBatch(ids);
+        return ResponseMessage.success(null);
+    }
 }

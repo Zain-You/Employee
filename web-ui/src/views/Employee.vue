@@ -10,19 +10,26 @@
 
       <el-card class="margin-10">
         <el-button type="primary" @click="handlerAdd">新 增</el-button>
-        <el-button type="warning">批量删除</el-button>
+        <el-button type="warning" @click="delBatch">批量删除</el-button>
         <!--        <el-button type="info">导入</el-button>-->
         <!--        <el-button type="success">导出</el-button>-->
       </el-card>
 
       <el-card class="margin-10">
-        <el-table :data="data.tableData" stripe>
+        <el-table :data="data.tableData" stripe @selection-change="handleSectionChange">
+          <el-table-column type="selection"  width="55"/>
           <el-table-column label="名称" prop="name"/>
           <el-table-column label="性别" prop="sex"/>
           <el-table-column label="工号" prop="no"/>
           <el-table-column label="年龄" prop="age"/>
           <el-table-column label="个人介绍" prop="description" show-overflow-tooltip/>
           <el-table-column label="部门" prop="departmentName"/>
+          <el-table-column label="操作">
+            <template #default="scope">
+              <el-button type="primary" @click="handleUpdate(scope.row)" :icon="Edit" circle></el-button>
+              <el-button type="danger" @click="del(scope.row.id)" :icon="Delete" circle></el-button>
+            </template>
+          </el-table-column>
         </el-table>
 
         <div style="margin-top: 15px;">
@@ -69,7 +76,7 @@
       <template #footer>
         <div class="dialog-footer">
           <el-button @click="data.dialogFormVisible = false">取消</el-button>
-          <el-button type="primary"  @click="save">
+          <el-button type="primary" @click="save">
             保存
           </el-button>
         </div>
@@ -80,9 +87,9 @@
 
 <script setup>
 import {reactive} from "vue";
-import {Search} from "@element-plus/icons-vue";
+import {Search, Delete, Edit} from "@element-plus/icons-vue";
 import request from "@/utils/request.js"
-import { ElMessage } from  "element-plus"
+import {ElMessage,ElMessageBox} from "element-plus"
 
 const data = reactive({
   name: null,
@@ -96,6 +103,7 @@ const data = reactive({
   total: 0,
   dialogFormVisible: false,
   form: {},
+  ids:[]
 })
 
 const load = () => {
@@ -125,22 +133,98 @@ const handlerAdd = () => {
 
 }
 
-const save =() => {
-  request.post('/employee/add',data.form).then(res=>{
-    if(res.code == '200')
-    {
-        data.dialogFormVisible = false;
-        ElMessage.success("操作成功");
-        load();
-    }
-    else
-    {
+const add = () => {
+  request.post('/employee/add', data.form).then(res => {
+    if (res.code == '200') {
+      data.dialogFormVisible = false;
+      ElMessage.success("操作成功");
+      load();
+    } else {
       ElMessage.error(res.message)
     }
 
   })
+}
+
+const update = () => {
+  request.put('/employee/update', data.form).then(res => {
+    if (res.code == '200') {
+      data.dialogFormVisible = false;
+      ElMessage.success("操作成功");
+      load();
+    } else {
+      ElMessage.error(res.message)
+    }
+
+  })
+}
+
+const save = () => {
+
+  // 更新和保存
+  data.form.id ? update() : add()
 
 }
+
+const del = (id) => {
+
+  ElMessageBox.confirm('删除数据后无法恢复，您确认删除吗？', '删除确认', {type: 'warning'}).then(() => {
+
+    request.delete('/employee/deleteById/' + id).then(res => {
+
+      if (res.code == '200') {
+        data.dialogFormVisible = false;
+        ElMessage.success("操作成功");
+        load();
+      } else {
+        ElMessage.error(res.message)
+      }
+    })
+
+  }).catch()
+
+
+}
+
+
+const handleUpdate = (row) => {
+  data.form = JSON.parse(JSON.stringify((row)));
+  data.dialogFormVisible = true;
+}
+
+const handleSectionChange = (rows) =>{
+
+    data.ids = rows.map(row => row.id);
+
+  console.log(data.ids)
+}
+
+const delBatch= ()=> {
+
+  if(data.ids.length === 0)
+  {
+      ElMessage.warning('请选择数据');
+      return;
+  }
+  ElMessageBox.confirm('删除数据后无法恢复，您确认删除吗？', '删除确认', {type: 'warning'}).then(() => {
+
+  request.delete('/employee/deleteBatch',{data:data.ids}).then(res=>{
+
+    if (res.code == '200') {
+      data.dialogFormVisible = false;
+      ElMessage.success("操作成功");
+      load();
+    } else {
+      ElMessage.error(res.message)
+    }
+
+
+  });
+
+  }).catch()
+
+}
+
 
 </script>
 
