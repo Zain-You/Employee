@@ -9,7 +9,7 @@
       <div style="flex: 1"></div>
       <div style="width: fit-content; display: flex; align-items: center; padding-right: 10px">
       <img src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" alt="" style="width:40px;height:40px">
-      <span style="color:white;margin-left:5px">老表</span>
+      <span style="color:white;margin-left:5px">{{data.user.username}}</span>
     </div>
 
     </div>
@@ -41,7 +41,7 @@
               </el-icon>
               <span>用户管理</span>
             </template>
-            <el-menu-item>管理员信息</el-menu-item>
+            <el-menu-item index="/manager/admin">管理员信息</el-menu-item>
             <el-menu-item index="/manager/employee">员工信息</el-menu-item>
           </el-sub-menu>
 
@@ -50,7 +50,7 @@
             个人信息
           </el-menu-item>
 
-          <el-menu-item>
+          <el-menu-item @click="logout">
             <el-icon><SwitchButton /></el-icon>
             退出登录
           </el-menu-item>
@@ -77,10 +77,24 @@
 <script setup lang="ts">
 import router from "@/router/index";
 
+import {reactive} from "vue";
+
+const data = reactive({
+  user:JSON.parse(localStorage.getItem('xm-pro-user'))
+
+})
+
+const logout = () =>{
+  localStorage.removeItem('xm-pro-user') // 清楚本地缓存用户数据
+  location.href = "/login"
+}
 </script>
 
 <style scoped>
-.el-menu .is-active {
-  background-color: #e6ecf7 !important;
+.el-sub-menu .is-active {
+  background-color: #e6ecf7;
+}
+.el-sub-menu__title {
+  background-color: white !important;
 }
 </style>

@@ -12,12 +12,12 @@
     </select>
 
     <insert id="add" parameterType="com.zain.user.entity.Employee">
-        insert into `employee` (name, sex,no, age, description, departmentId)
-        values(#{name},#{sex},#{no},#{age},#{description},#{departmentId})
+        insert into `employee` (username,password,role,name, sex,no, age, description, departmentId)
+        values(#{username},#{password},#{role},#{name},#{sex},#{no},#{age},#{description},#{departmentId})
     </insert>
 
     <update id="updateById" parameterType="com.zain.user.entity.Employee">
-        update `employee` set name =#{name}, sex = #{sex},no = #{no}, age =#{age},
+        update `employee` set username =#{username},  sex = #{sex} , password = #{password},  role = #{role},sex = #{sex},no = #{no}, age =#{age},
             description=#{description}, departmentId=#{departmentId}
         where id = #{id}
     </update>
