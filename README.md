@@ -30,5 +30,17 @@
 ```
 
 ## 预览图片
+注册
 ![图片替代文本](https://github.com/Zain-You/Employee/blob/master/images/QQ20250930-133737.png)
+登录
+![图片替代文本](https://github.com/Zain-You/Employee/blob/master/images/QQ20250930-133717.png)
+修改密码
+![图片替代文本](https://github.com/Zain-You/Employee/blob/master/images/QQ20250930-133705.png)
+
+个人信息修改
+![图片替代文本](https://github.com/Zain-You/Employee/blob/master/images/QQ20250930-133653.png)
+
+
+员工管理
+![图片替代文本](https://github.com/Zain-You/Employee/blob/master/images/QQ20250930-133614.png)
 
