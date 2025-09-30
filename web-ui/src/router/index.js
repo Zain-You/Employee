@@ -14,6 +14,7 @@ const router = createRouter({
                 {path: 'admin', name: 'admin', meta:{title:"管理员信息"}, component: () => import('../views/Admin.vue')},
                 {path: 'person', name: 'person', meta:{title:"个人信息"}, component: () => import('../views/Person.vue')},
                 {path: 'password', name: 'password', meta:{title:"修改密码"}, component: () => import('../views/Password.vue')},
+                {path: 'article', name: 'article', meta:{title:"文章信息"}, component: () => import('../views/Article.vue')},
           ]},
         {path:'/login',name:'login',meta:{title:'登录系统'}, component:()=> import('../views/Login.vue')},
         {path:'/register',name:'register',meta:{title:'注册'}, component:()=> import('../views/Register.vue')},

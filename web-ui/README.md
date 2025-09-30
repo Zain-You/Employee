@@ -27,3 +27,7 @@ npm run dev
 ```sh
 npm run build
 ```
+// 安装wangeeditor
+npm install @wangeditor/editor --save
+npm install @wangeditor/editor-for-vue@next --save    
+

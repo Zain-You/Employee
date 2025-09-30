@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zain.user.mapper.ArticleMapper">
+    <select id="selectAll" resultType="com.zain.user.entity.Article">
+        SELECT * FROM article
+        <where>
+            <if test="title!=null"> name like concat('%',#{title},'%')</if>
+        </where>
+        order by id desc
+    </select>
+
+    <insert id="add" parameterType="com.zain.user.entity.Article">
+        insert into `article` (title,img,description,content,time)
+        values(#{title},#{img},#{description},#{content},#{time})
+    </insert>
+
+    <update id="updateById" parameterType="com.zain.user.entity.Article">
+        update `article` set title =#{title},  description = #{description},content = #{content}, time = #{time}, img = #{img}
+                             where id = #{id}
+    </update>
+</mapper>

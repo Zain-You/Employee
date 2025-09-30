@@ -27,22 +27,22 @@ public class AdminController {
     @GetMapping("/getById/{id}")
     public ResponseMessage<Admin> getById(@PathVariable Integer id)
     {
-        Admin Admin = adminService.getById(id);
-        return ResponseMessage.success(Admin);
+        Admin admin = adminService.getById(id);
+        return ResponseMessage.success(admin);
     }
 
     @GetMapping("/getOne")
     public ResponseMessage<Admin> getOne(@RequestParam Integer id, @RequestParam(required = false) String other)
     {
-        Admin Admin = adminService.getById(id);
-        return ResponseMessage.success(Admin);
+        Admin admin = adminService.getById(id);
+        return ResponseMessage.success(admin);
     }
 
     // 使用getList？id=1&name=str 的方式请求
     @GetMapping("/getList")
-    public ResponseMessage<Admin> getList(Admin Admin)
+    public ResponseMessage<Admin> getList(Admin admin)
     {
-        return  ResponseMessage.success(Admin);
+        return  ResponseMessage.success(admin);
 
     }
 

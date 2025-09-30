@@ -34,6 +34,14 @@
             </el-icon>
             数据统计
           </el-menu-item>
+
+          <el-menu-item index="/manager/article">
+            <el-icon>
+              <Document />
+            </el-icon>
+            文章管理
+          </el-menu-item>
+
           <el-sub-menu index="1">
             <template #title>
               <el-icon>
