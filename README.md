@@ -43,4 +43,12 @@
 
 员工管理
 ![图片替代文本](https://github.com/Zain-You/Employee/blob/master/images/QQ20250930-133614.png)
+![图片替代文本](https://github.com/Zain-You/Employee/blob/master/images/QQ20250930-133628.png)
+
+管理员管理
+![图片替代文本](https://github.com/Zain-You/Employee/blob/master/images/QQ20250930-133546.png)
+![图片替代文本](https://github.com/Zain-You/Employee/blob/master/images/QQ20250930-133535.png)
+
+数据统计
+![图片替代文本](https://github.com/Zain-You/Employee/blob/master/images/QQ20250930-133514.png)
 
