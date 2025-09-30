@@ -1,7 +1,6 @@
 package com.zain.user.controller;
 
-import com.zain.user.MybatisService.AdminService;
-import com.zain.user.entity.Admin;
+import com.zain.user.mybatisService.AdminService;
 import com.zain.user.entity.Admin;
 import com.zain.user.pojo.dto.ResponseMessage;
 import jakarta.annotation.Resource;

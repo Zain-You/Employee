@@ -1,11 +1,10 @@
-package com.zain.user.MybatisService;
+package com.zain.user.mybatisService;
 
 import cn.hutool.core.util.StrUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.zain.user.entity.Account;
 import com.zain.user.entity.Admin;
-import com.zain.user.entity.Employee;
 import com.zain.user.mapper.AdminMapper;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;

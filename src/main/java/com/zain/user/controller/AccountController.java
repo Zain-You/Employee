@@ -1,7 +1,7 @@
 package com.zain.user.controller;
 
-import com.zain.user.MybatisService.AdminService;
-import com.zain.user.MybatisService.EmployeeService;
+import com.zain.user.mybatisService.AdminService;
+import com.zain.user.mybatisService.EmployeeService;
 import com.zain.user.entity.Account;
 import com.zain.user.entity.Employee;
 import com.zain.user.pojo.dto.ResponseMessage;

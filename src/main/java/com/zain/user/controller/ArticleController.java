@@ -1,6 +1,6 @@
 package com.zain.user.controller;
 
-import com.zain.user.MybatisService.ArticleService;
+import com.zain.user.mybatisService.ArticleService;
 import com.zain.user.entity.Article;
 import com.zain.user.pojo.dto.ResponseMessage;
 import jakarta.annotation.Resource;
