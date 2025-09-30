@@ -30,5 +30,5 @@
 ```
 
 ## 预览图片
-
+![图片替代文本](https://github.com/Zain-You/Employee/blob/master/images/QQ20250930-133737.png)
 
