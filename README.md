@@ -10,12 +10,13 @@
 
 ## 技术栈
 
-- **编程语言**: Java
-- **开发工具**: IntelliJ IDEA / Eclipse (可选)
+- **编程语言**: Java 
+- **开发工具**: IntelliJ IDEA 
 - **版本**: JDK 版本 8+ (建议使用最新版本)
 
 ## 补充
 这是测试项目jpa和mybatis 都有使用，为了更好的实践，不一定规范
+使用java + vue + element ui
 
 
 ## 项目结构
@@ -25,4 +26,7 @@
 │   ├── Main.java  # 程序入口
 │   └── ...        # 其他 Java 类
 └── README.md      # 项目说明
+
+
+
 
