@@ -87,7 +87,6 @@ const handleLogin = async () => {
 
       request.post('/account/login', data.form).then(res => {
         if (res.code === 200) {//登录成功
-
           // 存储用户信息
           localStorage.setItem('xm-pro-user',JSON.stringify(res.data))
           ElMessage.success('登录成功')
