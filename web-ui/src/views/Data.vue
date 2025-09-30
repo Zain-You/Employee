@@ -45,7 +45,7 @@ import {Search} from "@element-plus/icons-vue";
 const data = reactive({
   name: null,
   tableData: [
-    {id: 1, date: '2024-10-11', name: '亲哥哥哥', address: '安徽合肥'},
+    {id: 1, date: '2024-10-11', name: '哥哥', address: '安徽合肥'},
     {id: 2, date: '2024-10-12', name: '小鲁班', address: '上海浦东'},
     {id: 3, date: '2024-10-13', name: '小妲己', address: '北京大兴'}
   ],

@@ -22,6 +22,15 @@
           />
         </el-form-item>
 
+        <el-form-item prop="no">
+          <el-input
+              v-model="data.form.no"
+              placeholder="工号"
+              prefix-icon="User"
+              size="large"
+          />
+        </el-form-item>
+
         <el-form-item prop="password">
           <el-input
               v-model="data.form.password"
@@ -84,6 +93,7 @@ const data = reactive({
   form: {},
   rules: {
     username: [{required: true, message: '请输入账号', trigger: 'blur'}],
+    no: [{required: true, message: '请输入工号', trigger: 'blur'}],
     password: [{required: true, message: '请输入密码', trigger: 'blur'}],
     confirmPassword: [{validator : validatePass, trigger: 'blur'}]
   }

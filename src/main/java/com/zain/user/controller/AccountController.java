@@ -6,10 +6,7 @@ import com.zain.user.entity.Account;
 import com.zain.user.entity.Employee;
 import com.zain.user.pojo.dto.ResponseMessage;
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController // 接口方法返回对象 装换成json文本
 @RequestMapping("/account") // 接口路由 /user
@@ -43,6 +40,23 @@ public class AccountController {
     public ResponseMessage register(@RequestBody Employee employee)
     {
         employeeService.register(employee);
+        return ResponseMessage.success(null);
+    }
+
+    @PutMapping("/updatePassword")
+    public ResponseMessage updatePassword(@RequestBody Account account)
+    {
+        if("ADMIN".equals(account.getRole()))
+        {
+            //管理员登录
+            adminService.updatePassword(account);
+        }
+        else
+        {
+            // 员工登录
+            employeeService.updatePassword(account);
+        }
+
         return ResponseMessage.success(null);
     }
 }

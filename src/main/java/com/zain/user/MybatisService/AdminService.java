@@ -30,18 +30,34 @@ public class AdminService {
         return adminMapper.selectById(id);
     }
 
-    public PageInfo<Admin> getPage(Admin Admin, Integer pageNum, Integer pageSize) {
+    public PageInfo<Admin> getPage(Admin admin, Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
-        List<Admin> list = adminMapper.selectAll(Admin);
+        List<Admin> list = adminMapper.selectAll(admin);
         return PageInfo.of(list);
     }
 
-    public void add(@RequestBody Admin Admin) {
-        adminMapper.add(Admin);
+    public void add(@RequestBody Admin admin) {
+
+        String username = admin.getUsername();
+        Admin dbAdmin = adminMapper.selectByUsername(username);;
+        if(dbAdmin!=null)
+        {
+            // 账号已经存在
+            throw new IllegalArgumentException("账号已经存在");
+        }
+
+        if(StrUtil.isBlank(admin.getPassword())){//密码没有填
+            admin.setPassword("admin");
+        }
+
+        admin.setPassword("123456");
+        admin.setRole("ADMIN");
+
+        adminMapper.add(admin);
     }
 
-    public void update(Admin Admin) {
-        adminMapper.updateById(Admin);
+    public void update(Admin admin) {
+        adminMapper.updateById(admin);
 
     }
 
@@ -72,21 +88,15 @@ public class AdminService {
         return dbEmployee;
     }
 
-    public void creat(Admin Admin) {
-        String username = Admin.getUsername();
-        Admin dbAdmin = adminMapper.selectByUsername(username);;
-        if(dbAdmin!=null)
+    public void updatePassword(Account account) {
+        Integer id = account.getId();
+        Admin admin = this.getById(id);
+        if(!admin.getPassword().equals(account.getPassword()))
         {
-            // 账号已经存在
-            throw new IllegalArgumentException("账号已经存在");
+            throw new IllegalArgumentException("密码错误");
         }
 
-        if(StrUtil.isBlank(Admin.getPassword())){//密码没有填
-              Admin.setPassword("admin");
-        }
-
-        Admin.setRole("ADMIN");
-
-        add(Admin);
+        admin.setPassword(account.getNewPassword());
+        this.update(admin);
     }
 }

@@ -2,6 +2,7 @@ package com.zain.user.MybatisService;
 
 import cn.hutool.core.util.StrUtil;
 import com.zain.user.entity.Account;
+import com.zain.user.entity.Admin;
 import com.zain.user.entity.Employee;
 import com.zain.user.exception.GlobalExceptionHandlerAdvice;
 import com.zain.user.mapper.EmployeeMapper;
@@ -88,5 +89,17 @@ public class EmployeeService {
         employee.setRole("EMP");
 
         add(employee);
+    }
+
+    public void updatePassword(Account account) {
+        Integer id = account.getId();
+        Employee admin = this.getById(id);
+        if(!admin.getPassword().equals(account.getPassword()))
+        {
+            throw new IllegalArgumentException("密码错误");
+        }
+
+        admin.setPassword(account.getNewPassword());
+        this.update(admin);
     }
 }

@@ -12,12 +12,12 @@
     </select>
 
     <insert id="add" parameterType="com.zain.user.entity.Admin">
-        insert into `admin` (username,password,role,name)
-        values(#{username},#{password},#{role},#{name})
+        insert into `admin` (username,password,role,name,avatar)
+        values(#{username},#{password},#{role},#{name},#{avatar})
     </insert>
 
     <update id="updateById" parameterType="com.zain.user.entity.Admin">
-        update `admin` set username =#{username},  password = #{password},  role = #{role}
+        update `admin` set username =#{username},  password = #{password},  role = #{role},avatar = #{avatar}
         where id = #{id}
     </update>
 </mapper>

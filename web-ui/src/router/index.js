@@ -12,6 +12,8 @@ const router = createRouter({
                 {path: 'data', name: 'data', meta:{title:"数据页面"}, component: () => import('../views/Data.vue')},
                 {path: 'employee', name: 'employee', meta:{title:"员工信息"}, component: () => import('../views/Employee.vue')},
                 {path: 'admin', name: 'admin', meta:{title:"管理员信息"}, component: () => import('../views/Admin.vue')},
+                {path: 'person', name: 'person', meta:{title:"个人信息"}, component: () => import('../views/Person.vue')},
+                {path: 'password', name: 'password', meta:{title:"修改密码"}, component: () => import('../views/Password.vue')},
           ]},
         {path:'/login',name:'login',meta:{title:'登录系统'}, component:()=> import('../views/Login.vue')},
         {path:'/register',name:'register',meta:{title:'注册'}, component:()=> import('../views/Register.vue')},

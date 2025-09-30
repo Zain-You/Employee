@@ -12,13 +12,13 @@
     </select>
 
     <insert id="add" parameterType="com.zain.user.entity.Employee">
-        insert into `employee` (username,password,role,name, sex,no, age, description, departmentId)
-        values(#{username},#{password},#{role},#{name},#{sex},#{no},#{age},#{description},#{departmentId})
+        insert into `employee` (username,password,role,name, sex,no, age, description, departmentId,avatar)
+        values(#{username},#{password},#{role},#{name},#{sex},#{no},#{age},#{description},#{departmentId},#{avatar})
     </insert>
 
     <update id="updateById" parameterType="com.zain.user.entity.Employee">
-        update `employee` set username =#{username},  sex = #{sex} , password = #{password},  role = #{role},sex = #{sex},no = #{no}, age =#{age},
-            description=#{description}, departmentId=#{departmentId}
+        update `employee` set username =#{username}, name = #{name} ,  sex = #{sex} , password = #{password},  role = #{role},sex = #{sex},no = #{no}, age =#{age},
+            description=#{description}, departmentId=#{departmentId},avatar = #{avatar}
         where id = #{id}
     </update>
 </mapper>

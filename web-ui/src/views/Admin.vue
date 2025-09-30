@@ -19,6 +19,11 @@
         <el-table :data="data.tableData" stripe @selection-change="handleSectionChange">
           <el-table-column type="selection"  width="55"/>
           <el-table-column label="账号" prop="username"/>
+          <el-table-column label="头像" >
+            <template #default="scope">
+              <img v-if="scope.row.avatar" :src="scope.row.avatar" alt="" style="height: 40px;width: 40px;border-radius: 50%;">
+            </template>
+          </el-table-column>
           <el-table-column label="名称" prop="name"/>
           <el-table-column label="操作">
             <template #default="scope">
@@ -48,6 +53,16 @@
         <el-form-item label="账号" prop="username">
           <el-input v-model="data.form.username" autocomplete="off"/>
         </el-form-item>
+
+        <el-form-item label="头像" >
+          <el-upload
+              action="http://localhost:8031/files/upload"
+              list-type="picture"
+              :on-success="handleAvatarSuccess">
+            <el-button type="primary">上传头像</el-button>
+          </el-upload>
+        </el-form-item>
+
         <el-form-item label="名称" prop="name">
           <el-input v-model="data.form.name" autocomplete="off"/>
         </el-form-item>
@@ -215,6 +230,11 @@ const delBatch= ()=> {
 
 }
 
+const handleAvatarSuccess = (res)=>{
+  let fileName = res.data;
+  console.log(fileName)
+  data.form.avatar = res.data;
+}
 
 </script>
 

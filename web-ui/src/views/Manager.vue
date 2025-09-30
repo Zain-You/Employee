@@ -8,8 +8,8 @@
         </div>
       <div style="flex: 1"></div>
       <div style="width: fit-content; display: flex; align-items: center; padding-right: 10px">
-      <img src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" alt="" style="width:40px;height:40px">
-      <span style="color:white;margin-left:5px">{{data.user.username}}</span>
+      <img :src="data.user.avatar || 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'" alt="" style="width:40px;height:40px;border-radius: 50%;">
+      <span style="color:white;margin-left:5px">{{data.user.name}}</span>
     </div>
 
     </div>
@@ -45,9 +45,14 @@
             <el-menu-item index="/manager/employee">员工信息</el-menu-item>
           </el-sub-menu>
 
-          <el-menu-item index="/manager/home">
+          <el-menu-item index="/manager/person">
             <el-icon><UserFilled /></el-icon>
             个人信息
+          </el-menu-item>
+
+          <el-menu-item index="/manager/password">
+            <el-icon><lock /></el-icon>
+            修改密码
           </el-menu-item>
 
           <el-menu-item @click="logout">
@@ -62,7 +67,8 @@
 
       <!-- 右边主题区域开始--->
       <div style="flex: 1;width: 0;background-color:#f5f7ff">
-        <router-view>
+        <!-- updateUser是子页面定义的事件，在此页面来接收，子页面使用emit来定义 的，可以去查看person -->
+        <router-view @updateUser="updateUser">
 
         </router-view>
       </div>
@@ -88,6 +94,10 @@ const logout = () =>{
   localStorage.removeItem('xm-pro-user') // 清楚本地缓存用户数据
   location.href = "/login"
 }
+const updateUser = () =>{
+    data.user = JSON.parse(localStorage.getItem('xm-pro-user'));
+}
+
 </script>
 
 <style scoped>

@@ -62,6 +62,7 @@ public class EmployeeController {
     @PutMapping("/update")
     public ResponseMessage update(@RequestBody Employee employee)
     {
+        // 此处可以添加工号是否已经存在的判断
         employeeService.update(employee);
         return ResponseMessage.success(null);
     }
